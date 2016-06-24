@@ -3,7 +3,7 @@ class FilesHelper:
         pass
 
     @staticmethod
-    def write_file(content, file_name, file_path=None):
+    def write_python_file(content, file_name, file_path=None):
         new_file = open(file_name, 'w')
         first_line = True
         for line in content.split('\n'):
