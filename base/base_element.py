@@ -1,7 +1,7 @@
 from method import ElementMethod
 
-class BaseElement:
 
+class BaseElement:
     def __init__(self):
         self.methods = [method for method in dir(self) if callable(getattr(self, method))]
 
@@ -16,7 +16,3 @@ class BaseElement:
 
     def get_inheritance_level(self):
         return -1
-
-
-
-
