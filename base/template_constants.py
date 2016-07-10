@@ -1,5 +1,6 @@
-from method import ElementMethod
+TEMPLATE = """
 
+#IMPORTS#
 
 class BaseElement:
     def __init__(self):
@@ -19,3 +20,17 @@ class BaseElement:
 
     def run(self):
         pass
+
+class #CLASS_NAME# (#PARENT#):
+    def __init__(self#INIT_ARGS#):
+        #LOCAL_OBJECTS#
+
+#METHODS#
+
+"""
+PARENT = "#PARENT#"
+LOCAL_OBJECTS = "#LOCAL_OBJECTS#"
+IMPORTS = "#IMPORTS#"
+CLASS_NAME = "#CLASS_NAME#"
+INIT_ARGS = "#INIT_ARGS#"
+METHODS = "#METHODS#"
