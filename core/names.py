@@ -4,8 +4,8 @@ PARTS = ["get", "set", "miau", "destroy", "kill", "create", "enjoy", "smoke", "d
          "crew", "style", "the", "or", "smack", "jump"]
 
 
-def get_name(min=2, max=6):
-    method_name_parts = get_random(min, max)
+def get_name(min_name_size=2, max_name_size=6):
+    method_name_parts = get_random(min_name_size, max_name_size)
     obtained_parts = 0
     method_name = ""
     while obtained_parts < method_name_parts:

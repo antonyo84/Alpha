@@ -73,8 +73,9 @@ def test_names_generation():
 def test_kore():
     from core.AlphaKore import AlphaKore
     from data.object_data import ObjectData
-    test_parent = ObjectData("Object", "", 3)
+    test_parent = ObjectData("object", "", 3, None)
     kore = AlphaKore()
     print kore.generate_child_object(test_parent)
+
 
 test_kore()
