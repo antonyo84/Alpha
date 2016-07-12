@@ -22,8 +22,16 @@ class ObjectData:
 
 
 class MethodData(object, ObjectData):
-
     def get_data(self):
         parent_data = super(MethodData, self).get_data()
         parent_data["parameters"] = self.parameters
         return parent_data
+
+
+class PrimitiveData(object, ObjectData):
+    def __init__(self, object_name, object_string, primitive_type):
+        ObjectData.__init__(self, object_name, -1, object_string)
+
+    def get_data(self):
+        parent_data = super(PrimitiveData, self).get_data()
+        parent_data["primitive_type"] = self.primitive_type

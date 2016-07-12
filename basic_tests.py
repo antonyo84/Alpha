@@ -81,7 +81,7 @@ def test_kore():
     for message in AlphaLogger.AlphaLogger.get_messages():
         print message
 
-    
+
 
 
 test_kore()
