@@ -2,6 +2,7 @@
 from Randomizer import get_random
 import data.object_data
 import base.template_constants as template
+import alpha_logging.AlphaLogger as AlphaLogger
 from names import get_name
 from base.template_constants import *
 
@@ -33,14 +34,14 @@ class AlphaKore(object):
         pass
 
     def generate_child_object(self, parent_object):
-
+        new_class_name = get_name()
         new_methods_to_generate = get_random(AlphaKore.MIN_METHODS, AlphaKore.MAX_METHODS)
         new_methods = ""
         generated_names = 0
         loaded_template = TEMPLATE
-
+        AlphaLogger.AlphaLogger.log("Se empieza a generar la clase {0}, con {1} métodos crear".format(new_class_name, new_methods_to_generate))
         loaded_template = loaded_template.replace(PARENT, parent_object.get_data()["name"])
-        loaded_template = loaded_template.replace(CLASS_NAME, get_name())
+        loaded_template = loaded_template.replace(CLASS_NAME, new_class_name)
         loaded_template = loaded_template.replace(LOCAL_OBJECTS, 'pass')
         loaded_template = loaded_template.replace(INIT_ARGS, "")
         loaded_template = loaded_template.replace(IMPORTS, "")
@@ -140,8 +141,10 @@ class AlphaKore(object):
             """
         result = "\tdef {0}():\n".format(method_name)
         things_to_do = get_random(AlphaKore.MIN_LOOPS, AlphaKore.MAX_LOOPS)
+        AlphaLogger.AlphaLogger.log("En el método {0}, tenemos {1} cosas que crear".format(method_name, things_to_do))
         # TODO De momento no vamos a generar loops
         things_to_do = 0
+
         if things_to_do == 0:
             for action in self.generate_actions(usable_objects, usable_methods).split("\n"):
                 if action is not None and len(action) > 0:

@@ -1,5 +1,7 @@
 import os
 
+from alpha_logging import AlphaLogger
+
 
 def test_function(function):
     def func_wrapper(*args, **kwargs):
@@ -76,6 +78,10 @@ def test_kore():
     test_parent = ObjectData("object", "", 3, None)
     kore = AlphaKore()
     print kore.generate_child_object(test_parent)
+    for message in AlphaLogger.AlphaLogger.get_messages():
+        print message
+
+    
 
 
 test_kore()
